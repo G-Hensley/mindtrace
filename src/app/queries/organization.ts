@@ -1,7 +1,7 @@
 // Import the useMutation, useQuery, and useQueryClient hooks from the @tanstack/react-query library
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { supabase } from "@supabase/client";
-import { Organization } from "@/types/organization";
+import { Organization } from "@/types/Organization";
 import { UUID } from "crypto";
 
 // Function to get all organizations
