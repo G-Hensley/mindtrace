@@ -12,7 +12,7 @@ const newProfileSchema = z.object({
     .max(50, 'Last name must be less than 50 characters.')
     .regex(/^[a-zA-Z]+$/, 'Last name must contain only letters, hyphens, and apostrophes.'),
   role: z.enum(['teacher', 'counselor', 'admin', 'therapist', 'parent'], {
-    errorMap: () => ({ message: 'Please select a valid role.' }),
+    message: 'Please select a valid role.',
   }),
   organization: z.string()
     .min(1, 'Organization is required.'),
