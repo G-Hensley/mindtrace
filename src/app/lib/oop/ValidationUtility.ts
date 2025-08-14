@@ -3,7 +3,7 @@ import { BaseModel, LogModel, StudentLogModel, MoodModel } from './DataModels';
 // Utility class demonstrating polymorphism and encapsulation
 export class ValidationUtility {
   private static instance: ValidationUtility;
-  private _validationRules: Map<string, (value: any) => boolean>;
+  private _validationRules: Map<string, (value: unknown) => boolean>;
 
   // Singleton pattern with encapsulation
   private constructor() {
@@ -13,22 +13,25 @@ export class ValidationUtility {
 
   // Encapsulation: Private method to initialize rules
   private initializeValidationRules(): void {
-    this._validationRules.set('email', (value: string) => {
+    this._validationRules.set('email', (value: unknown) => {
+      if (typeof value !== 'string') return false;
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(value);
     });
 
-    this._validationRules.set('password', (value: string) => {
+    this._validationRules.set('password', (value: unknown) => {
+      if (typeof value !== 'string') return false;
       return value.length >= 8;
     });
 
-    this._validationRules.set('uuid', (value: string) => {
+    this._validationRules.set('uuid', (value: unknown) => {
+      if (typeof value !== 'string') return false;
       const uuidRegex =
         /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
       return uuidRegex.test(value);
     });
 
-    this._validationRules.set('required', (value: any) => {
+    this._validationRules.set('required', (value: unknown) => {
       return value !== null && value !== undefined && value !== '';
     });
   }
@@ -42,7 +45,7 @@ export class ValidationUtility {
   }
 
   // Encapsulation: Private property with public getter
-  get validationRules(): Map<string, (value: any) => boolean> {
+  get validationRules(): Map<string, (value: unknown) => boolean> {
     return new Map(this._validationRules); // Return a copy for encapsulation
   }
 
@@ -91,7 +94,7 @@ export class ValidationUtility {
   }
 
   // Polymorphism: Generic validation method
-  public validateField(value: any, ruleName: string): boolean {
+  public validateField(value: unknown, ruleName: string): boolean {
     const rule = this._validationRules.get(ruleName);
     if (!rule) {
       throw new Error(`Validation rule '${ruleName}' not found`);
@@ -126,8 +129,8 @@ export class ValidationUtility {
   // Factory method demonstrating polymorphism
   public static createValidator(
     type: 'email' | 'password' | 'uuid' | 'required'
-  ): (value: any) => boolean {
+  ): (value: unknown) => boolean {
     const instance = ValidationUtility.getInstance();
-    return (value: any) => instance.validateField(value, type);
+    return (value: unknown) => instance.validateField(value, type);
   }
 }

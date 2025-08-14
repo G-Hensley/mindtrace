@@ -23,7 +23,7 @@ export abstract class BaseModel {
   abstract validate(): boolean;
 
   // Common method for all models
-  toJSON(): Record<string, any> {
+  toJSON(): Record<string, unknown> {
     return {
       id: this._id,
       createdAt: this._createdAt,
@@ -103,7 +103,7 @@ export class LogModel extends BaseModel {
   }
 
   // Override toJSON method
-  toJSON(): Record<string, any> {
+  toJSON(): Record<string, unknown> {
     return {
       ...super.toJSON(),
       user_id: this._userId,
@@ -192,7 +192,7 @@ export class StudentLogModel extends BaseModel {
   }
 
   // Override toJSON method
-  toJSON(): Record<string, any> {
+  toJSON(): Record<string, unknown> {
     return {
       ...super.toJSON(),
       first_name: this._firstName,
@@ -238,7 +238,7 @@ export class MoodModel extends BaseModel {
   }
 
   // Override toJSON method
-  toJSON(): Record<string, any> {
+  toJSON(): Record<string, unknown> {
     return {
       ...super.toJSON(),
       emoji: this._emoji,
