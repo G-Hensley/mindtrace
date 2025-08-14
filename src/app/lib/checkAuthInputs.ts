@@ -91,7 +91,7 @@ export function checkAuthInputs(
     // If the signup data is invalid, return the result
     return {
       result: false,
-      error: result.error.errors[0]?.message || 'Invalid signup data.',
+      error: result.error.issues[0]?.message || 'Invalid signup data.',
       cleanEmail,
       cleanPassword,
     };
@@ -111,7 +111,7 @@ export function checkAuthInputs(
   // If the login data is invalid, return the result
   return {
     result: false,
-    error: result.error.errors[0]?.message || 'Invalid Credentials.',
+    error: result.error.issues[0]?.message || 'Invalid Credentials.',
     cleanEmail,
     cleanPassword,
   };
