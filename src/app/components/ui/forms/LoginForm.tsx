@@ -30,6 +30,7 @@ export default function LoginForm() {
   // Toggle between login and registration forms
   const toggleForm = () => {
     setIsLogin(!isLogin);
+    setPasswordReset(false);
   };
 
   // Effect to reset form fields when switching between login and registration
@@ -115,7 +116,7 @@ export default function LoginForm() {
   return (
     <form
       aria-label='Login/Signup Form'
-      className='flex flex-col items-center w-sm gap-8 h-[525px] relative pb-20 form-card px-8 pt-4'
+      className='flex flex-col items-center w-full sm:w-sm gap-8 h-[525px] relative pb-20 form-card px-8 pt-4 sm:rounded-xl'
       onSubmit={handleSubmit}>
       <div aria-label='Toaster Container' className='absolute -translate-y-10 w-full z-50'>
         <Toaster />
@@ -123,7 +124,7 @@ export default function LoginForm() {
 
       <h2
         aria-label='Form Title'
-        className={`text-3xl font-bold text-accent text-outline-primary z-10 uppercase font-lato`}>
+        className={`text-2xl md:text-3xl font-bold text-accent text-outline-primary z-10 uppercase font-lato`}>
         {isLogin && !passwordReset
           ? 'Log in'
           : passwordReset
@@ -144,7 +145,7 @@ export default function LoginForm() {
             label='Password'
           />
         )}
-        {!isLogin && (
+        {!isLogin && !passwordReset && (
           <PasswordInput
             aria-label='Confirm Password Input'
             password={confirmPassword}
@@ -152,7 +153,7 @@ export default function LoginForm() {
             label='Confirm Password'
           />
         )}
-        {isLogin || (!isLogin && !passwordReset) ? (
+        {!passwordReset ? (
           <button
             aria-label='Forgot Password Button'
             type='button'

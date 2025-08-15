@@ -23,7 +23,7 @@ export default function Auth() {
 
     return (
       <main className='flex flex-col min-h-screen'>
-        <section className='flex min-h-[90vh] xl:gap-36 xl:px-36 xl:py-24 relative justify-center'>
+        <section className='flex min-h-[90vh] xl:gap-36 xl:px-36 xl:py-24 relative justify-around xl:justify-center flex-col-reverse xl:flex-row'>
           {/* Background Image */}
           <div className='fixed inset-0 w-full h-full scale-102 overflow-hidden opacity-25 -z-10'>
             <Image
@@ -31,7 +31,7 @@ export default function Auth() {
               alt='Background Image'
               width={1782}
               height={937}
-              className='blur-[3px] saturate-100 brightness-120 object-cover w-full'
+              className='blur-[3px] saturate-100 brightness-120 object-cover w-full h-full'
             />
           </div>
 
@@ -42,7 +42,7 @@ export default function Auth() {
 
           <header className='flex flex-col gap-2 xl:gap-4 items-center md:w-full h-fit z-20 relative auth-header'>
             <h1
-              className={`text-5xl sm:text-5xl xl:text-8xl text-black relative title flex gap-1.5 xl:gap-2 items-center font-playwrite`}>
+              className={`text-5xl md:text-7xl xl:text-8xl text-black relative title flex gap-1.5 xl:gap-2 items-center font-playwrite`}>
               Mind
               <div className='w-12 h-12 sm:w-14 sm:h-14 xl:w-24 xl:h-24 xl:scale-110 relative'>
                 <Image
@@ -57,7 +57,7 @@ export default function Auth() {
               Trace
             </h1>
 
-            <h2 className={`text-6xl text-neutral-400 subtitle font-urbanist`}>
+            <h2 className={`text-3xl md:text-4xl xl:text-6xl text-neutral-400 subtitle font-urbanist text-center`}>
               Track Student Behavior
             </h2>
           </header>

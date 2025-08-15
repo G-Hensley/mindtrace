@@ -26,7 +26,7 @@ export default function RootLayout({
   
   return (
     <html lang='en'>
-      <body className={`${lato.variable} ${urbanist.variable} ${playwrite.variable} bg-gray-950/95 px-4 sm:px-8`}>
+      <body className={`${lato.variable} ${urbanist.variable} ${playwrite.variable} bg-gray-950/95 sm:px-8`}>
         <ReactQueryProvider>
           <AuthProvider>{children}</AuthProvider>
         </ReactQueryProvider>
