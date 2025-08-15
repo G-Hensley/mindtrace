@@ -160,7 +160,7 @@ export default function LogEntry() {
 
   return (
     // Log Entry Form
-    <div className='w-full flex flex-col gap-2 h-fit relative'>
+    <div className='w-full flex flex-col gap-2 h-min relative'>
 
       <Toaster />
 

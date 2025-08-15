@@ -18,7 +18,7 @@ export default function DashboardPage() {
       <Nav />
 
       {/* Main Content */}
-      <main className='pl-20 h-screen pt-4 w-full flex flex-col gap-10'>
+      <main className='md:pl-20 h-screen pt-4 w-full flex flex-col gap-10'>
         <header aria-label='Dashboard Header'>
           <h1
             aria-label='Dashboard Title'
@@ -29,7 +29,7 @@ export default function DashboardPage() {
 
         <div
           aria-label='Dashboard Content'
-          className='grid grid-cols-3 w-3/4 mx-auto gap-4'>
+          className='flex flex-col md:grid grid-cols-1 xl:grid-cols-3 w-3/4 mx-auto gap-4'>
           <LogEntry />
           <StudentLogs />
           <GenerateReport />
