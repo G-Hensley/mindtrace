@@ -29,7 +29,7 @@ export default function DashboardPage() {
 
         <div
           aria-label='Dashboard Content'
-          className='flex flex-col md:grid grid-cols-1 xl:grid-cols-3 w-3/4 mx-auto gap-4'>
+          className='flex flex-col md:grid grid-cols-1 xl:grid-cols-3 md:w-3/4 mx-auto gap-4'>
           <LogEntry />
           <StudentLogs />
           <GenerateReport />

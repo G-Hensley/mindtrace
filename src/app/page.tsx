@@ -55,7 +55,7 @@ export default function Home() {
 
   // Main Home Page Component
   return (
-    <main className='flex flex-col items-center min-h-screen pt-8 xl:pt-20 gap-8 2xl:gap-20'>
+    <main className='flex flex-col items-center min-h-screen pt-8 xl:pt-20 gap-8 2xl:gap-20 px-4'>
 
       {/* Background Image */}
       <Image src='/mindTrace-bg.png' alt='Background Image' width={2982} height={1674} className='fixed top-0 left-0 w-full h-full object-cover opacity-50 blur-[2px]'

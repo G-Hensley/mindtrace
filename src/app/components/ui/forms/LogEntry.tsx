@@ -160,7 +160,7 @@ export default function LogEntry() {
 
   return (
     // Log Entry Form
-    <div className='w-full flex flex-col gap-2 h-min relative'>
+    <div className='w-full flex flex-col gap-2 h-fit relative'>
 
       <Toaster />
 
@@ -182,8 +182,8 @@ export default function LogEntry() {
         id='log-entry-form'
         aria-label='Log Entry Form'
         onSubmit={handleSubmit}
-        className={`${isOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'} w-full bg-gray-950/90 rounded-lg p-4 flex flex-col gap-4 border border-gray-800/90
-      transition-all duration-500 text-gray-400 font-lato text-base origin-top hover:border-primary/50 shadow-black/40 shadow-lg
+        className={`${isOpen ? 'opacity-100 scale-y-100 h-auto' : 'opacity-0 scale-y-0 h-0'} w-full bg-gray-950/90 rounded-lg p-4 flex flex-col gap-4 border border-gray-800/90
+      transition-all duration-100 text-gray-400 font-lato text-base origin-top hover:border-primary/50 shadow-black/40 shadow-lg
       relative`}>
     
         {/* Student ComboBoxSelector */}
