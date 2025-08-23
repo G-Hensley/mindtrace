@@ -55,7 +55,7 @@ export default function Home() {
 
   // Main Home Page Component
   return (
-    <main className='flex flex-col items-center justify-center min-h-screen pt-8 xl:pt-20 gap-8 2xl:gap-20 px-4'>
+    <main className='flex flex-col items-center min-h-screen pt-8 xl:pt-28 gap-8 2xl:gap-20 px-4 relative'>
 
       {/* Background Image */}
       <Image src='/mindTrace-bg.png' alt='Background Image' width={2982} height={1674} className='fixed top-0 left-0 w-full h-full object-cover opacity-30 blur-[2px]'
@@ -85,7 +85,7 @@ export default function Home() {
       </header>
 
       {/* Cards Section - Flexbox container */}
-      <div className='flex flex-wrap 2xl:flex-nowrap gap-8 items-center justify-center w-full'>
+      <div className='flex flex-wrap 2xl:flex-nowrap gap-8 items-center justify-center w-full relative'>
         {cards.map(card => {
           return (
             <HomeCard key={card.title} title={card.title} description={card.description} icon={card.icon} />
@@ -94,7 +94,7 @@ export default function Home() {
       </div>
 
       {/* CTA Button - Link to Auth Page */}
-      <Link href={user ? '/dashboard' : '/auth'} className='z-20' aria-label='Go to Auth Page'>
+      <Link href={user ? '/dashboard' : '/auth'} className='z-20 relative' aria-label='Go to Auth Page'>
         <CtaBtn>Start Tracking</CtaBtn>
       </Link>
 
