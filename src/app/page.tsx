@@ -55,18 +55,18 @@ export default function Home() {
 
   // Main Home Page Component
   return (
-    <main className='flex flex-col items-center min-h-screen pt-8 xl:pt-20 gap-8 2xl:gap-20 px-4'>
+    <main className='flex flex-col items-center justify-center min-h-screen pt-8 xl:pt-20 gap-8 2xl:gap-20 px-4'>
 
       {/* Background Image */}
-      <Image src='/mindTrace-bg.png' alt='Background Image' width={2982} height={1674} className='fixed top-0 left-0 w-full h-full object-cover opacity-50 blur-[2px]'
+      <Image src='/mindTrace-bg.png' alt='Background Image' width={2982} height={1674} className='fixed top-0 left-0 w-full h-full object-cover opacity-30 blur-[2px]'
       loading='lazy' />
       
       {/* Header */}
       <header className='flex flex-col gap-2 xl:gap-4 items-center md:w-fit h-fit z-20 relative auth-header'>
         <h1
-          className={`text-5xl md:text-7xl xl:text-8xl text-black relative title flex gap-1.5 xl:gap-2 items-center font-playwrite`}>
+          className={`text-5xl md:text-6xl xl:text-7xl text-black relative title flex gap-1.5 xl:gap-2 items-center font-playwrite`}>
           Mind
-          <div className='w-14 h-14 md:w-20 md:h-20 xl:w-24 xl:h-24 xl:scale-110 relative'>
+          <div className='w-14 h-14 md:w-20 md:h-20 xl:w-20 xl:h-20 xl:scale-110 relative'>
             <Image
               src='/mindTrace-logo.png'
               alt='MindTrace Logo'
@@ -79,7 +79,7 @@ export default function Home() {
           Trace
         </h1>
 
-        <h2 className={`text-3xl md:text-4xl xl:text-6xl text-neutral-400 subtitle font-urbanist`}>
+        <h2 className={`text-3xl md:text-4xl xl:text-5xl text-neutral-400 subtitle font-urbanist`}>
           Track Student Behavior
         </h2>
       </header>

@@ -116,7 +116,17 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const resetPassword = async (email: string) => {
     setLoading(true);
     setError(null);
-    const { data, error } = await supabase.auth.resetPasswordForEmail(email);
+    
+    // Get the correct base URL for the current environment
+    const baseUrl = typeof window !== 'undefined' 
+      ? window.location.origin 
+      : process.env.NODE_ENV === 'production' 
+        ? (process.env.NEXT_PUBLIC_SITE_URL || `https://${process.env.VERCEL_URL}` || 'https://yourdomain.com')
+        : 'http://localhost:3000';
+    
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${baseUrl}/auth/callback?type=recovery`
+    });
     if (error) {
       setError(error.message);
       setLoading(false);
