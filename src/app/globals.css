@@ -73,7 +73,6 @@
 .form-card {
   backdrop-filter: blur(18px) saturate(140%);
   background-color: #2229333d;
-  border: 1.5px solid #01122079;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.425);
   transition: all 0.2s ease-in-out;
 }

@@ -116,7 +116,7 @@ export default function LoginForm() {
   return (
     <form
       aria-label='Login/Signup Form'
-      className='flex flex-col items-center w-full sm:w-sm gap-8 h-[525px] relative pb-20 form-card px-8 pt-4 sm:rounded-xl'
+      className='flex flex-col items-center w-full sm:w-sm gap-8 h-[525px] relative pb-20 form-card px-8 pt-4 sm:rounded-xl border border-[#01122079]'
       onSubmit={handleSubmit}>
       <div aria-label='Toaster Container' className='absolute -translate-y-10 w-full z-50'>
         <Toaster />
@@ -132,7 +132,7 @@ export default function LoginForm() {
             : 'Sign up'}
       </h2>
 
-      <div className={`flex flex-col gap-7 w-full font-lato`}>
+      <div className={`flex flex-col gap-7 w-full font-lato max-w-sm`}>
         <div className={`group relative`} aria-label='Email Input Container'>
           <EmailInput aria-label='Email Input' email={email} setEmail={setEmail} />
         </div>
