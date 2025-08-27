@@ -124,7 +124,7 @@ export default function LoginForm() {
 
       <h2
         aria-label='Form Title'
-        className={`text-2xl md:text-3xl font-bold text-accent text-outline-primary z-10 uppercase font-lato`}>
+        className={`text-xl md:text-2xl font-bold text-accent text-outline-primary z-10 uppercase font-lato`}>
         {isLogin && !passwordReset
           ? 'Log in'
           : passwordReset

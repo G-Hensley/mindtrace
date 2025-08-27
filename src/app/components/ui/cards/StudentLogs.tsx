@@ -18,10 +18,15 @@ import Loader from '../Loader';
 import Log from './Log';
 import ComboBoxSelector from '@/components/ui/inputs/ComboBoxSelector';
 
+import { Logs } from 'lucide-react';
+
 // Student Logs Component
 export default function StudentLogs() {
   // Create state for student logs to be displayed
   const [studentLogs, setStudentLogs] = useState<StudentLog[]>([]);
+
+  // State for opening/closing the student logs
+  const [isOpen, setIsOpen] = useState(false);
 
   // Create state for loading
   const [loading, setLoading] = useState(true);
@@ -79,7 +84,7 @@ export default function StudentLogs() {
   return (
     <div
       className='flex flex-col font-urbanist bg-gray-950/90 p-2 rounded-lg border border-gray-800/90 shadow-lg 
-    shadow-black/40 text-lg gap-4 hover:border-primary/50 transition-all duration-300 w-[360px] md:w-full max-h-[80vh] overflow-y-auto'
+    shadow-black/40 text-lg gap-4 hover:border-primary/50 transition-all duration-300 w-[360px] h-fit md:w-full max-h-[80vh] overflow-y-auto'
       aria-label='Student Logs Card'>
       <header aria-label='Student Logs Header' className='flex border-b pb-2 border-accent gap-4 items-center'>
 
@@ -101,7 +106,15 @@ export default function StudentLogs() {
         />
       </header>
 
-      {/* If the loading state is true, show the loader */}
+      <button className='text-accent cursor-pointer flex gap-2 items-center justify-center transition-all hover:bg-gray-900/90 py-1 rounded-md' 
+        onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? 'Close Logs' : 'Open Logs'}
+        <Logs />
+      </button>
+
+      {isOpen && (
+        <>
+                {/* If the loading state is true, show the loader */}
       {loading ? (
         <div aria-label='Loading State' className='flex justify-center items-center h-full'>
           <Loader />
@@ -124,6 +137,9 @@ export default function StudentLogs() {
         </div>
       )
       }
+        </>
+      )}
+
     </div>
   );
 }

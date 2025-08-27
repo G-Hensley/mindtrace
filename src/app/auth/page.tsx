@@ -40,27 +40,27 @@ export default function Auth() {
             <LoginForm />
           </div>
 
-          <header className='flex flex-col gap-2 xl:gap-4 items-center md:w-full h-fit z-20 relative auth-header'>
-            <h1
-              className={`text-5xl md:text-7xl xl:text-8xl text-black relative title flex gap-1.5 xl:gap-2 items-center font-playwrite`}>
-              Mind
-              <div className='w-12 h-12 sm:w-14 sm:h-14 xl:w-24 xl:h-24 xl:scale-110 relative'>
-                <Image
-                  src='/mindTrace-logo.png'
-                  alt='MindTrace Logo'
-                  width={96}
-                  height={96}
-                  className='rounded-full'
-                  loading='lazy'
-                />
-              </div>
-              Trace
-            </h1>
+      <header className='flex flex-col gap-2 xl:gap-4 items-center md:min-w-fit h-fit z-20 relative auth-header text-center'>
+        <h1
+          className={`text-5xl md:text-6xl xl:text-7xl text-black relative title flex gap-1.5 xl:gap-2 items-center font-playwrite`}>
+          Mind
+          <div className='w-14 h-14 md:w-20 md:h-20 xl:w-20 xl:h-20 xl:scale-110 relative'>
+            <Image
+              src='/mindTrace-logo.png'
+              alt='MindTrace Logo'
+              width={96}
+              height={96}
+              className='rounded-full'
+              loading='lazy'
+            />
+          </div>
+          Trace
+        </h1>
 
-            <h2 className={`text-3xl md:text-4xl xl:text-6xl text-neutral-400 subtitle font-urbanist text-center`}>
-              Track Student Behavior
-            </h2>
-          </header>
+        <h2 className={`text-3xl md:text-4xl xl:text-5xl text-neutral-400 subtitle font-urbanist`}>
+          Track Student Behavior
+        </h2>
+      </header>
 
         </section>
         <Footer />
