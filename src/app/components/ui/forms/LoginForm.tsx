@@ -116,7 +116,8 @@ export default function LoginForm() {
   return (
     <form
       aria-label='Login/Signup Form'
-      className='flex flex-col items-center w-full sm:w-sm gap-8 h-[525px] relative pb-20 form-card px-8 pt-4 sm:rounded-xl border border-[#01122079]'
+      className='flex flex-col items-center w-full sm:w-sm gap-8 h-[525px] relative pb-20 form-card px-8 pt-4 sm:rounded-xl border-t border-b border-[#01122079]
+        hover:border-primary transition-all duration-300 sm:border'
       onSubmit={handleSubmit}>
       <div aria-label='Toaster Container' className='absolute -translate-y-10 w-full z-50'>
         <Toaster />

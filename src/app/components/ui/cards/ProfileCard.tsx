@@ -2,6 +2,7 @@
 
 // Import next.js components
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 // Import types and queries
 import { Profile } from '@/types/profile';
@@ -11,6 +12,10 @@ import { UUID } from 'crypto';
 
 // Profile Card Component
 export default function ProfileCard({ profile }: { profile: Profile | null }) {
+
+  // State to manage avatar loading timeout
+  const [showAvatarLoader, setShowAvatarLoader] = useState(false);
+  const [avatarLoadTimeout, setAvatarLoadTimeout] = useState(false);
 
   // Get the organization name of the user/profile
   const { data: organizationName } = useGetOrganizationById(
@@ -23,6 +28,25 @@ export default function ProfileCard({ profile }: { profile: Profile | null }) {
   );
   // Create avatar url to display the image/avatar
   const avatar = avatarData ? URL.createObjectURL(avatarData) : undefined;
+
+  // Effect to manage avatar loading timeout
+  useEffect(() => {
+    if (avatarLoading && profile?.avatar) {
+      setShowAvatarLoader(true);
+      setAvatarLoadTimeout(false);
+      
+      // Set timeout to stop showing loader after 2 seconds
+      const timeout = setTimeout(() => {
+        setShowAvatarLoader(false);
+        setAvatarLoadTimeout(true);
+      }, 2000);
+
+      return () => clearTimeout(timeout);
+    } else if (!avatarLoading) {
+      setShowAvatarLoader(false);
+      setAvatarLoadTimeout(false);
+    }
+  }, [avatarLoading, profile?.avatar]);
 
   // Create profile data to display the profile information
   const profileData = [
@@ -46,7 +70,7 @@ export default function ProfileCard({ profile }: { profile: Profile | null }) {
     shadow-black/40 text-lg gap-8 hover:border-primary/50 transition-all duration-300'>
       {profileData.map((item) => (
         <div className='grid grid-cols-2' key={item.label}>
-          <p className='border-gray-600/90 pr-6 border-b-2 border-r self-end'>
+          <p className='border-gray-600/90 pr-6 border-b-2 self-end text-base'>
             {item.label}:
           </p>
 
@@ -55,12 +79,12 @@ export default function ProfileCard({ profile }: { profile: Profile | null }) {
           </p>
         </div>
       ))}
-      {avatarLoading && (
+      {showAvatarLoader && (
         <div className='flex justify-center w-full border-b-2 border-gray-600/90 pb-1'>
           <div className='animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900'></div>
         </div>
       )}
-      {avatar && (
+      {avatar && !avatarLoadTimeout && (
         <div className='flex justify-center w-full border-b-2 border-gray-600/90 pb-1'>
           <Image
             className='rounded-full'
