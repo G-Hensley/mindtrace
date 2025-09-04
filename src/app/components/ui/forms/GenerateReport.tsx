@@ -117,7 +117,7 @@ export default function GenerateReport() {
         id='generate-report-form'
         aria-label='Generate Report Form'
         className={`${isOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'} w-full bg-gray-950/90 rounded-lg p-4 flex flex-col gap-4 border border-gray-800/90
-      transition-all duration-500 text-gray-400 font-lato text-base origin-top hover:border-primary/50 shadow-black/40 shadow-lg
+      transition-all duration-100 text-gray-400 font-lato text-base origin-top hover:border-primary/50 shadow-black/40 shadow-lg
       relative z-10`}>
         {/* Student Selector */}
         <ComboboxSelector
