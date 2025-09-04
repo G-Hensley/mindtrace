@@ -6,8 +6,14 @@ import { usePathname } from 'next/navigation';
 import { useAuth } from '@/components/providers/AuthProvider';
 
 import { useState } from 'react';
-import { LayoutDashboard, User, LogOut } from 'lucide-react';
+import { LayoutDashboard, User, LogOut, Home } from 'lucide-react';
 import HamburgerBtn from '../buttons/HamburgerBtn';
+
+const links = [
+  { href: '/home', label: 'Home', icon: Home },
+  { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { href: '/profile', label: 'Profile', icon: User },
+]
 
 export default function Nav() {
 
@@ -50,36 +56,26 @@ export default function Nav() {
 
         {/* Navigation Links */}
         <ul className='flex flex-col items-center w-full text-gray-200 font-urbanist text-lg'>
-          <li className='w-full'>
-            <Link
-              className='nav-link border-b border-t border-gray-700 gap-2 px-2 md:justify-center'
-              href='/dashboard'
-              aria-label='Dashboard Page'
-              onClick={() => setIsOpen(false)}>
-              <LayoutDashboard
-                className={`nav-icon ${pathname === '/dashboard' ? 'text-highlight' : 'text-gray-200'}`}
-                aria-label='Dashboard'
-              />
-              <span className='md:hidden' aria-label='Dashboard'>
-                Dashboard
-              </span>
-            </Link>
-          </li>
-          <li className='w-full'>
-            <Link
-              className='nav-link border-b border-gray-700 gap-2 px-2 md:justify-center'
-              href='/profile'
-              aria-label='Profile Page'
-              onClick={() => setIsOpen(false)}>
-              <User
-                className={`nav-icon ${pathname === '/profile' ? 'text-highlight' : 'text-gray-200'}`}
-                aria-label='Profile'
-              />
-              <span className='md:hidden' aria-label='Profile'>
-                Profile
-              </span>
-            </Link>
-          </li>
+          {links.map((link) => {
+            const Icon = link.icon;
+            return (
+              <li className='w-full' key={link.href}>
+                <Link
+                  className='nav-link border-b border-t border-gray-700 gap-2 px-2 md:justify-center'
+                  href={link.href}
+                  aria-label={`${link.label} Page`}
+                  onClick={() => setIsOpen(false)}>
+                  <Icon
+                    className={`nav-icon ${pathname === link.href ? 'text-highlight' : 'text-gray-200'}`}
+                    aria-label={link.label}
+                  />
+                  <span className='md:hidden' aria-label={link.label}>
+                    {link.label}
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         {/* Log Out Button */}
