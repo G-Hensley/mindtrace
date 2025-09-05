@@ -45,8 +45,6 @@ export default function Profile() {
       <Nav />
 
       <main className='px-8 md:px-20 flex flex-col items-center gap-10 md:gap-20 h-screen text-gray-300 pt-4'>
-        <h1 className='text-center text-4xl font-urbanist'>Profile</h1>
-
         {/* If the user has not been created, show the new user form */}
         {!userProfile?.first_name && !userCreated && !isLoadingUserProfile && (
           <NewUserForm setUserCreated={setUserCreated} />

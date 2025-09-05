@@ -81,10 +81,10 @@ export default function Nav() {
         {/* Log Out Button */}
         <button
           className='w-full flex items-center px-2 gap-2 text-gray-200 font-urbanist text-lg border-t border-b py-2 border-gray-700 cursor-pointer md:justify-center
-        hover:text-accent hover:bg-gray-900/50 transition-all duration-300 ease-in-out logout-btn h-fit mt-auto overflow-hidden'
+        hover:text-red-800 hover:bg-gray-900/50 transition-all duration-300 ease-in-out logout-btn h-fit mt-auto overflow-hidden'
           aria-label='Log Out'
           onClick={handleLogOut}>
-          <LogOut className='nav-icon logout-icon' aria-label='Log Out' />
+          <LogOut className='nav-icon logout-icon rotate-180' aria-label='Log Out' />
           <span className='md:hidden' aria-label='Log Out'>
             Log Out
           </span>
